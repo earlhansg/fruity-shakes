@@ -1,7 +1,7 @@
 {
-  "name": "ngx-express-typescript-starter",
+  "name": "fruity-shake",
   "version": "5.1.0",
-  "description": "An Angular and Node Express Typescript starter",
+  "description": "An Angular and Node Express application",
   "main": "index.js",
   "scripts": {
     "install:all": "npm install && cd ./public/app && npm install",
@@ -24,12 +24,12 @@
     "express typescript",
     "angular express"
   ],
-  "author": "Kristy Mae Almuete <kristyalmuete@gmail.com>",
+  "author": "Earl Hans Genoso <earlhansg@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KShewengerz/ngx-express-typescript-starter/issues"
+    "url": "https://github.com/earlhansg/fruity-shakes.git"
   },
-  "homepage": "https://github.com/KShewengerz/ngx-express-typescript-starter#readme",
+  "homepage": "https://github.com/earlhansg/fruity-shakes.git#readme",
   "dependencies": {
     "@types/jasmine": "^2.8.16",
     "babel-plugin-module-resolver": "^3.2.0",
