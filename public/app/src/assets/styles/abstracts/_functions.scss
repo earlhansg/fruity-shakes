@@ -1,0 +1,6 @@
+// FONT LOCATION
+@function set-location($locationType) {
+    $url: '/assets/fonts';
+  
+    @return if($locationType == 'assistant', '#{$url}/Assistant/', '#{$url}/GreatVibes/');
+}

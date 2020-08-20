@@ -1,0 +1,17 @@
+@import 'abstracts/mixins';
+
+
+// FONT FAMILY
+$fallback: 'Helvetica', 'Arial', sans-serif;
+$assistant: Assistant-Regular, #{$fallback};
+$assistant-light: Assistant-Light, #{$fallback};
+$assistant-bold: Assistant-SemiBold, #{$fallback};
+
+$great-vibes: GreatVibes-Regular, #{$fallback};
+
+// SETUP TYPOGRAPHY
+@include font-face('Assistant-Regular');
+@include font-face('Assistant-Light');
+@include font-face('Assistant-SemiBold');
+
+@include font-face('GreatVibes-Regular', 'great-vibes');

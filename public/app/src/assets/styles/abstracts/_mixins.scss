@@ -1,0 +1,12 @@
+@import 'abstracts/functions';
+
+
+// FONT FACE
+@mixin font-face($name, $locationType: assistant, $format: truetype) {
+  $location: set-location($locationType);
+
+  @font-face {
+    font-family: $name;
+    src: url("#{$location}#{$name}.ttf") format("#{$format}");
+  }
+}

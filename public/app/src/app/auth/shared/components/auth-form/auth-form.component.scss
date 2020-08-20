@@ -1,0 +1,46 @@
+@import 'main';
+
+:host {
+    width: 60%;
+}
+
+.form {
+    width: 100%;
+    height: 303px;
+    
+    &__header {
+        width: 50%;
+        background-color: $bg-secondary;
+        border-radius: 15px 0 0 15px;
+        box-shadow: $box-shadow;
+        color: $white;
+        @extend .vertical-horizontal-align;
+
+        &--icon {
+            font-size: 100px;
+        }
+        // end of &--icon 
+        &--first {
+            font-family: $great-vibes;
+            font-size: 35px;
+            margin-top: 1.8rem;
+            line-height: 0.7;
+        }
+        // end of &--first 
+        &--second {
+            font-family: $assistant-light;
+            font-size: 12px;
+        }
+        // endof &--second 
+    }
+    // end of &__header 
+    &__input {
+        width: 50%;
+        background-color: $bg-white;
+        border-radius: 0 15px 15px 0;
+        box-shadow: $box-shadow;
+        @extend .vertical-horizontal-align;
+    }
+    // end of &__input 
+}
+// end of .form
