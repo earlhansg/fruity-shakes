@@ -1,7 +1,7 @@
 @import 'main';
 
 .container-fluid {
-    background-color: $bg-primary;
+    background-color: $purple-200;
     height: 100vh;
     @extend .vertical-horizontal-align
 }

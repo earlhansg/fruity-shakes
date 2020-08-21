@@ -1,0 +1,15 @@
+@import 'base/colors';
+
+
+.form-control {
+  border-radius: 2rem;
+  background-color: $gray-100;
+  border-color: $gray-100;
+  color: black !important;
+  text-align: center;
+
+  &:focus {
+    box-shadow: unset !important;
+    border-color: $purple-500 !important;
+  }
+}

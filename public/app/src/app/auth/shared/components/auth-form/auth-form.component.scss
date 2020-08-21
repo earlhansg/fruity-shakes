@@ -1,71 +1,70 @@
 @import 'main';
 
 :host {
-    width: 60%;
+    width: 65%;
 }
 
 .form {
     width: 100%;
-    height: 303px;
-    
-    &__header {
-        width: 50%;
-        background-color: $bg-secondary;
-        border-radius: 15px 0 0 15px;
+
+    @media(max-width: 48em) {
+        &-header, &-input {
+            width: 100% !important;
+            height: auto !important;
+        }
+    }
+
+    @media(max-width: 60em) {
+        &-header__first {
+            font-size: 1.8rem !important;
+        }
+    }
+
+    &__container {
+        width: 100%;
+        border-radius: 1rem;
         box-shadow: $box-shadow;
+
+        & > div { padding: 2rem; }
+    }
+    &-header {
+        width: 45%;
+        height: 20rem;
+        background-color: $purple-500;
         color: $white;
         @extend .vertical-horizontal-align;
 
-        &--icon {
-            font-size: 100px;
-        }
-        // end of &--icon 
-        &--first {
+        &__icon { font-size: 5rem; }
+
+        &__first {
             font-family: $great-vibes;
-            font-size: 35px;
-            margin-top: 1.8rem;
+            font-size: 2.5rem;
             line-height: 0.7;
         }
-        // end of &--first 
-        &--second {
+
+        &__second {
             font-family: $assistant-light;
-            font-size: 12px;
+            font-size: 0.8rem;
         }
-        // endof &--second 
     }
-    // end of &__header 
-    &__input {
+
+    &-input {
         font-family: $assistant-light;
-        width: 50%;
-        background-color: $bg-white;
-        border-radius: 0 15px 15px 0;
-        box-shadow: $box-shadow;
+        width: 55%;
+        background-color: $white;
         @extend .vertical-horizontal-align;
 
-        &--label {
-            font-size: 16px;
-            color: $gray-6a6868;
+        &__label {
+            font-size: 1.1rem;
+            color: $gray-700;
         }
-        // end of &--label
-        &--input {
-            margin-top: 1.1rem;
-            width: 65%;
-            height: 35px;
-            background-color: #eaedf0;
-            border: 1px solid #ece5e5;
-            border-radius: 15px;
-        }
-        // end of &--input 
-        &--btn {
-            margin-top: 1.1rem;
-            font-size: 14px;
-            color: $secondary;
+        
+        &__btn {
+            font-size: 1.1rem;
+            color: $purple-200;
             background-color: $white;
-            padding: 5px 0 5px 0;
-            border: 1px solid $secondary;
+            border: 1px solid $purple-200;
         }
-        // end of &--btn 
     }
-    // end of &__input 
+   
 }
-// end of .form
