@@ -1,0 +1,36 @@
+@import 'base/colors';
+@import 'themes/default';
+@import 'base/typography';
+
+
+.header {
+    background-color: $purple-200;
+    min-height: 9.563rem;
+
+    &-logo {
+        color: $white;
+
+        &__icon {
+            font-size: 1.313rem;
+        }
+
+        &__text {
+            font-family: $great-vibes;
+            font-size: 1.3rem;
+        }
+    }
+
+    &-menu {
+        &__shakes {
+            color: $white;
+            font-size: 0.9375rem;
+            padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+            border-radius: 0 !important;
+        }
+        &__shakes:hover, &__shakes:active {
+            color: $white;
+            border-bottom: 1.5px solid $white;
+        }
+    }
+
+}
