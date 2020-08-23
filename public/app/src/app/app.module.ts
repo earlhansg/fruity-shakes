@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from '@app/app-routing.module';
 // module
 import { AuthModule } from '@app/auth/auth.module';
+import { OrderModule } from '@app/order/order.module';
 // component
 import { AppComponent } from '@app/app.component';
 
@@ -14,7 +15,8 @@ import { AppComponent } from '@app/app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
