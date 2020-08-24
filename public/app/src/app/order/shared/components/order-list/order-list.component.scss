@@ -1,0 +1,23 @@
+@import 'base/custom'; 
+@import 'base/colors';
+
+:host {
+    width: 70%;
+}
+.order {
+    height: 77vh;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    grid-gap: 1rem;
+
+    &-container {
+        width: 100%;
+        height: 12rem;
+        border-radius: 1rem;
+
+        &:hover {
+            background-color: $purple-300;
+        }
+    }
+}

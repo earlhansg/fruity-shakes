@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // components 
 import { HeaderComponent } from './components/header/header.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
 
 @NgModule({
     imports: [
@@ -13,10 +14,12 @@ import { HeaderComponent } from './components/header/header.component';
         FontAwesomeModule
     ],
     declarations: [
-        HeaderComponent
+        HeaderComponent,
+        OrderListComponent
     ],
     exports: [
-        HeaderComponent
+        HeaderComponent,
+        OrderListComponent
     ],
     providers: []
 })
