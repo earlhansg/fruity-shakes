@@ -1,87 +1,26 @@
 <div class="order p-5">
-    <div class="order-container d-flex flex-column overflow-hidden mb-3">
+    <div *ngFor="let item of items" 
+         class="order-container d-flex flex-column overflow-hidden mb-3">
         <div class="d-flex flex-column align-items-center mt-4 mb-auto">
             <div class="order-container__image d-flex flex-column text-right">
                 <div class="d-flex flex-row-reverse">
-                    <span>$3.00</span>
+                    <span>${{item.price}}</span>
                 </div>
-                <img src="assets/images/shakes/mango.jpg" alt="Mango">
+                <img [src]="item.src" [alt]="item.name">
             </div>
+            <!-- end of .order-container__image  -->
             <div class="order-container__name d-flex text-align mt-2 mb-auto">
-                <span>Mango</span>
+                <span>{{item.name}}</span>
             </div>
+            <!-- end of .order-container__name  -->
         </div>
+        <!-- end of .d-flex  -->
         <div class="order-container__footer p-2 d-flex align-items-center justify-content-center">
             <span class="material-icons">control_point</span>
             <span>ADD</span>
         </div>
+        <!-- end of .order-container__footer  -->
     </div>
-    <div class="order-container d-flex flex-column overflow-hidden mb-3">
-        <div class="d-flex flex-column align-items-center mt-4 mb-auto">
-            <div class="order-container__image d-flex flex-column text-right">
-                <div class="d-flex flex-row-reverse">
-                    <span>$3.00</span>
-                </div>
-                <img src="assets/images/shakes/watermelon.jpg" alt="Watermelon">
-            </div>
-            <div class="order-container__name d-flex text-align mt-2 mb-auto">
-                <span>Watermelon</span>
-            </div>
-        </div>
-        <div class="order-container__footer p-2 d-flex align-items-center justify-content-center">
-            <span class="material-icons">control_point</span>
-            <span>ADD</span>
-        </div>
-    </div>
-    <div class="order-container d-flex flex-column overflow-hidden mb-3">
-        <div class="d-flex flex-column align-items-center mt-4 mb-auto">
-            <div class="order-container__image d-flex flex-column text-right">
-                <div class="d-flex flex-row-reverse">
-                    <span>$3.00</span>
-                </div>
-                <img src="assets/images/shakes/strawberry.jpg" alt="Strawberry">
-            </div>
-            <div class="order-container__name d-flex text-align mt-2 mb-auto">
-                <span>Strawberry</span>
-            </div>
-        </div>
-        <div class="order-container__footer p-2 d-flex align-items-center justify-content-center">
-            <span class="material-icons">control_point</span>
-            <span>ADD</span>
-        </div>
-    </div>
-    <div class="order-container d-flex flex-column overflow-hidden mb-3">
-        <div class="d-flex flex-column align-items-center mt-4 mb-auto">
-            <div class="order-container__image d-flex flex-column text-right">
-                <div class="d-flex flex-row-reverse">
-                    <span>$3.00</span>
-                </div>
-                <img src="assets/images/shakes/banana.jpg" alt="Banana">
-            </div>
-            <div class="order-container__name d-flex text-align mt-2 mb-auto">
-                <span>Banana</span>
-            </div>
-        </div>
-        <div class="order-container__footer p-2 d-flex align-items-center justify-content-center">
-            <span class="material-icons">control_point</span>
-            <span>ADD</span>
-        </div>
-    </div>
-    <div class="order-container d-flex flex-column overflow-hidden mb-3">
-        <div class="d-flex flex-column align-items-center mt-4 mb-auto">
-            <div class="order-container__image d-flex flex-column text-right">
-                <div class="d-flex flex-row-reverse">
-                    <span>$3.00</span>
-                </div>
-                <img src="assets/images/shakes/vanilla.jpg" alt="Vanilla">
-            </div>
-            <div class="order-container__name d-flex text-align mt-2 mb-auto">
-                <span>Vanilla</span>
-            </div>
-        </div>
-        <div class="order-container__footer p-2 d-flex align-items-center justify-content-center">
-            <span class="material-icons">control_point</span>
-            <span>ADD</span>
-        </div>
-    </div>
+    <!-- end of .order-container  -->
 </div>
+<!-- end of .order  -->

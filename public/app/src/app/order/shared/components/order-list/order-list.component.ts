@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+interface Order {
+    name: string;
+    src: string;
+    price: number;
+}
 
 @Component({
     selector: 'app-order-list',
@@ -6,7 +12,9 @@ import { Component } from '@angular/core';
     styleUrls: [ './order-list.component.scss' ]
 })
 export class OrderListComponent {
+@Input()
+items: Order[];
 
-    constructor() {}
+constructor() {}
 
 }
