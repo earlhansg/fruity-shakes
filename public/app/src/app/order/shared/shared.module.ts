@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 // modules 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule} from '@angular/router';
 // components 
 import { HeaderComponent } from './components/header/header.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
@@ -11,7 +12,8 @@ import { OrderListComponent } from './components/order-list/order-list.component
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        RouterModule
     ],
     declarations: [
         HeaderComponent,

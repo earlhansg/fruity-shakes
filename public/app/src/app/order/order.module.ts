@@ -11,7 +11,7 @@ import { OrderComponent } from './container/order.component';
     imports: [
         BrowserModule,
         OrderRoutingModule,
-        SharedModule
+        SharedModule.forRoot()
     ],
     declarations: [ OrderComponent ]
 })

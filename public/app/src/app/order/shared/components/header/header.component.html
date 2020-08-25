@@ -5,8 +5,14 @@
     </div>
     <!-- end of .header-logo  -->
     <div class="header-menu ml-3 mt-auto">
-        <a class="header-menu__shakes btn">Shakes</a>
-        <a class="header-menu__shakes btn ml-2">Toppings</a>
+        <a class="header-menu__shakes"
+           [routerLink]="['../order/shakes']" 
+           routerLinkActive="active-route" 
+           [routerLinkActiveOptions]="{exact: true}">Shakes</a>
+        <a class="header-menu__shakes ml-2"
+           [routerLink]="['../order/snacks']" 
+           routerLinkActive="active-route" 
+           [routerLinkActiveOptions]="{exact: true}">Snacks</a>
     </div>
     <!-- end of .header-menu -->
 </div>

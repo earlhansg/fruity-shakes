@@ -14,6 +14,11 @@ const routes: Routes = [
         .then(mod => mod.ShakesModule)
       },
       {
+        path: 'snacks',
+        loadChildren: () => import('./snacks/snacks.module')
+        .then(mod => mod.SnacksModule)
+      },
+      {
         path: '',
         redirectTo: 'shakes',
         pathMatch: 'full'
