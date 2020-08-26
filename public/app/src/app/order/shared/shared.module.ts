@@ -7,6 +7,7 @@ import { RouterModule} from '@angular/router';
 // components 
 import { HeaderComponent } from './components/header/header.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
     imports: [
@@ -17,11 +18,13 @@ import { OrderListComponent } from './components/order-list/order-list.component
     ],
     declarations: [
         HeaderComponent,
-        OrderListComponent
+        OrderListComponent,
+        CartComponent
     ],
     exports: [
         HeaderComponent,
-        OrderListComponent
+        OrderListComponent,
+        CartComponent
     ],
     providers: []
 })

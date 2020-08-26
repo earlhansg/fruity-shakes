@@ -1,0 +1,115 @@
+@import 'main';
+
+@mixin font($first, $second) {
+
+    span:first-child {
+        font-size: #{$first};
+        font-weight: 600;
+    }
+    span:last-child {
+        font-size: #{$second};
+    }
+}
+
+:host {
+    width: 30%;
+    margin-top: -3.813rem;
+    background-color: $white;
+    border-radius: 1.5rem 0 0 0;
+    overflow: hidden;
+}
+
+.cart {
+    &-container {
+        &__logo {
+            margin: 1.2rem 0 0 1.5rem;
+            span:first-child {
+                color: $purple-500;
+                font-size: 1.50rem;
+            }
+            span:last-child {
+                color: $gray-800;
+                font-size: 1.125rem;
+            }
+        }
+        &__date {
+            color: $gray-800;
+            font-size: 0.6875rem;
+            margin: 0.5rem 0 0 1.5rem;
+        }
+        &__form {
+            height: 50vh;
+            margin: 1rem 1.5rem 0 1.5rem;
+            overflow-y: scroll;
+            border: 1px solid $gray-100;
+        }
+
+        &__total {
+            margin: 1.5rem 1.5rem 0 1.5rem;
+        }
+
+        &__event {
+            background-color: khaki;
+            button {
+                color: $white;
+                font-size: 1.25rem;
+                font-weight: 600;
+                background-color: $purple-200;
+                width: 100%;
+                border-radius: 0 !important;
+            }
+        }
+
+    }
+}
+
+.order {
+    border: 1px solid $gray-100;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    &-icon {
+        color: $pink-100;
+        font-size: 1.3rem;
+        width: 10%;
+    }
+    &-details {
+        color: $gray-700;
+        width: 55%;
+
+        @include font(0.8125rem, 0.6875rem);
+    }
+    &-input {
+        width: 30%;
+        span:first-child {
+            color: $purple-200;
+            font-size: 1.3rem;
+        }
+        span:last-child {
+            color: $purple-200;
+            font-size: 1.3rem;
+        }
+        span > input {
+            background-color: $gray-100;
+            width: 2.313rem;
+            height: 1.5rem;
+            border-radius: 15px;
+        }
+    }
+}
+
+
+.cart {
+    &-subtotal {
+        color: $gray-400;
+        @include font(0.8125rem, 0.6875rem);
+    }
+    &-tax {
+        color: $gray-400;
+        @include font(0.8125rem, 0.6875rem);
+    }
+    &-total {
+        color: $gray-900;
+        @include font(1.25rem, 1.25rem);
+    }
+}
