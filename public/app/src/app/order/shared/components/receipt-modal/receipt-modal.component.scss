@@ -1,0 +1,56 @@
+@import 'base/colors';
+@import 'themes/default';
+@import 'base/typography';
+@import 'base/custom';
+
+.receipt {
+    &-header {
+        color: $white;
+        background-color: $purple-500;
+        padding: 1rem 0 1rem 0;
+        span:first-child { font-size: 2.2rem; }
+        span:last-child {
+            font-family: $great-vibes;
+            font-size: 1.5rem;
+        }
+    }
+
+    &-body {
+        &__header {
+            color: $gray-800;
+            font-size: 1.188rem;
+        }
+
+        &__content, &__subheader, &__subtotal {
+            border-bottom: 2px solid $gray-100;
+            padding: 0.7rem 0.3rem 0.7rem 0.3rem;
+        }
+
+        &__subheader, &__event { font-size: 0.875rem;}
+
+        &__content, &__subtotal, &__total div:not(:first-child), &__event button {
+            font-size: 0.8125rem;
+        }
+
+        &__content, &__subheader, &__subtotal, &__total { color: $gray-500; }
+        &__subtotal { font-weight: 600; }
+
+        &__total {
+            padding: 0.5rem 0.3rem 0.5rem 0.3rem;
+            div:first-child {
+                font-size: 1.125rem;
+                font-weight: 600;
+            }
+        }
+        &__event {
+            button {
+                color: $purple-500;
+                border-radius: 1.563rem;
+                border: 1px solid $purple-500;
+                padding: 0.2rem 0.8rem;
+            }
+            button:hover, button:active {color: $purple-500;}
+        }
+    }
+
+}

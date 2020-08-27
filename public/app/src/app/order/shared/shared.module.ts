@@ -4,27 +4,32 @@ import { ReactiveFormsModule } from '@angular/forms';
 // modules 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule} from '@angular/router';
+import { ModalModule } from 'ngx-bootstrap/modal';
 // components 
 import { HeaderComponent } from './components/header/header.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ReceiptModalComponent } from './components/receipt-modal/receipt-modal.component';
 
 @NgModule({
     imports: [
         CommonModule,
         ReactiveFormsModule,
         FontAwesomeModule,
-        RouterModule
+        RouterModule,
+        ModalModule.forRoot()
     ],
     declarations: [
         HeaderComponent,
         OrderListComponent,
-        CartComponent
+        CartComponent,
+        ReceiptModalComponent
     ],
     exports: [
         HeaderComponent,
         OrderListComponent,
-        CartComponent
+        CartComponent,
+        ReceiptModalComponent
     ],
     providers: []
 })
