@@ -1,0 +1,44 @@
+@import 'base/colors';
+@import 'themes/default';
+@import 'base/typography';
+@import 'base/custom';
+
+.payment {
+    &-header {
+        color: $white;
+        background-color: $purple-500;
+        padding: 0.7rem 0 0.7rem 0;
+        span { font-size: 1.188rem; }
+    }
+
+    &-form {
+        &__header {
+            color: $gray-800;
+        }
+        &__input {
+            width: 75%;
+
+            input {
+                color: $gray-800;
+                background-color: $gray-100;
+                width: 100%;
+                height: 2rem;
+                text-align: center;
+                border-radius: 19px;
+                border: none;
+            }
+            input:focus { outline: none; }
+            input::placeholder { text-align: center; }
+        }
+
+        button {
+            color: $purple-500;
+            border-radius: 1.563rem;
+            border: 1px solid $purple-500;
+            padding: 0.2rem 0.8rem;
+        }
+        button:hover, button:active {color: $purple-500;}
+    }
+
+}
+ 

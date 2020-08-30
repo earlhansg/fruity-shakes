@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ReceiptModalComponent } from './components/receipt-modal/receipt-modal.component';
+import { PaymentModalComponent } from './components/payment-modal/payment-modal.component';
 
 @NgModule({
     imports: [
@@ -23,13 +24,15 @@ import { ReceiptModalComponent } from './components/receipt-modal/receipt-modal.
         HeaderComponent,
         OrderListComponent,
         CartComponent,
-        ReceiptModalComponent
+        ReceiptModalComponent,
+        PaymentModalComponent
     ],
     exports: [
         HeaderComponent,
         OrderListComponent,
         CartComponent,
-        ReceiptModalComponent
+        ReceiptModalComponent,
+        PaymentModalComponent
     ],
     providers: []
 })

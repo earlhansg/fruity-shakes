@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ReceiptModalComponent } from '@app/order/shared/components/receipt-modal/receipt-modal.component';
+import { PaymentModalComponent } from '@app/order/shared/components/payment-modal/payment-modal.component';
 
 @Component({
     selector: 'app-order',
@@ -14,7 +15,7 @@ config = {
     keyboard: true,
     backdrop: true,
     ignoreBackdropClick: false,
-    class: "custom-modal"
+    class: "modal-dialog-centered custom-modal"
 };
 
 constructor(private modalService: BsModalService) {}
@@ -23,12 +24,22 @@ constructor(private modalService: BsModalService) {}
 ngOnInit() {
     this.openModalWithComponent();
 }
+
+// openModalWithComponent() {
+//     const initialState = {
+//       title: 'Modal with component'
+//     };
+
+//     this.bsModalRef = this.modalService.show(ReceiptModalComponent, 
+//         Object.assign(this.config, {initialState}));
+// }
+
 openModalWithComponent() {
     const initialState = {
-      title: 'Modal with component'
+        cartTotal: 24.20
     };
 
-    this.bsModalRef = this.modalService.show(ReceiptModalComponent, 
+    this.bsModalRef = this.modalService.show(PaymentModalComponent, 
         Object.assign(this.config, {initialState}));
 }
 
