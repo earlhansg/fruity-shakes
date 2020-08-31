@@ -7,6 +7,9 @@ import * as path from 'path';
 import * as favicon from 'serve-favicon';
 import * as cors from 'cors';
 import * as fs from 'fs';
+import { Config } from './helper/config';
+const mongoose = require('mongoose');
+
 
 import { userRoutes } from '@app/controllers';
 
@@ -24,6 +27,7 @@ export class Index {
     this.middlewares();
     this.routes();
     this.catchErrors();
+    this.checkDbConnection();
   }
   
   
@@ -61,6 +65,19 @@ export class Index {
       
       res.status(statusCode).send('Server Error');
     });
+  }
+
+  /**
+   * Authenticate DB Connection
+   */
+
+  private checkDbConnection(): void {
+    mongoose.connect(Config.MONGO_CONNECTION_URL.toString(),
+    { useNewUrlParser: true, useUnifiedTopology: true }, err => {
+      if (err) throw err;
+
+      console.log("DB connected");
+    }); 
   }
   
   

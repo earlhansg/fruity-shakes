@@ -39,6 +39,8 @@
     "cors": "^2.8.4",
     "debug": "~2.6.3",
     "express": "^4.17.1",
+    "mongodb": "^3.6.0",
+    "mongoose": "^5.10.2",
     "morgan": "^1.10.0",
     "serve-favicon": "~2.4.2",
     "ts-node": "~8.6.2"
