@@ -1,6 +1,10 @@
 import * as mongoose from 'mongoose';
+import { UserInterface } from '../model/User';
+import { ShakeInterface } from '../model/Shake';
+import { SnackInterface } from '../model/Snack';
 
 export interface IItem extends mongoose.Document {
+    productID: ShakeInterface['_id'] | SnackInterface['_id'];
     quantity: number;
     name: string;
     price: number;
@@ -31,19 +35,47 @@ export interface IReceipt extends mongoose.Document {
     total: number;
     cashReceived: number;
     change: number;
+    createdAt?: Date;
+    createdBy?: UserInterface['_id'];
 }
 
 export const ReceiptSchema: mongoose.Schema = new mongoose.Schema({
-    shakes: [Item],
-    snacks: [Item],
-    price: {
+    shakes: {
+        type: Array,
+        required: false
+    },
+    snacks: {
+        type: Array,
+        required: false
+    },
+    subTotal: {
         type: Number,
         required: true
     },
-    imageUrl: {
-        type: String,
+    tax: {
+        type: Number,
         required: true
     },
-});
+    total: {
+        type: Number,
+        required: true
+    },
+    cashReceived: {
+        type: Number,
+        required: true
+    },
+    change: {
+        type: Number,
+        required: true
+    },
+    createdAt: {
+        type: Date,
+        required: false
+    },
+    createdBy: {
+        type: mongoose.Types.ObjectId,
+        required: false
+    }
+}, { versionKey: false });
 
 export const Receipt = mongoose.model<IReceipt>("receipt", ReceiptSchema);
