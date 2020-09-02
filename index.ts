@@ -10,7 +10,7 @@ import * as fs from 'fs';
 import { Config } from './helper/config';
 import * as mongoose from "mongoose";
 
-import { userRoutes, shakeRoutes, snackRoutes } from '@app/controllers';
+import { userRoutes, shakeRoutes, snackRoutes, receiptRoutes } from '@app/controllers';
 
 
 export class Index {
@@ -87,6 +87,7 @@ export class Index {
     this.app.use('/user', userRoutes);
     this.app.use('/shake', shakeRoutes);
     this.app.use('/snack', snackRoutes);
+    this.app.use('/receipt', receiptRoutes);
 
     this.app.get('*', this.htmlHandler);
   }
