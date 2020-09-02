@@ -8,8 +8,8 @@ import * as favicon from 'serve-favicon';
 import * as cors from 'cors';
 import * as fs from 'fs';
 import { Config } from './helper/config';
-const mongoose = require('mongoose');
-
+// const mongoose = require('mongoose');
+import * as mongoose from "mongoose";
 
 import { userRoutes } from '@app/controllers';
 
@@ -72,7 +72,7 @@ export class Index {
    */
 
   private checkDbConnection(): void {
-    mongoose.connect(Config.MONGO_CONNECTION_URL.toString(),
+    mongoose.connect(Config.MONGO_CONNECTION_URL,
     { useNewUrlParser: true, useUnifiedTopology: true }, err => {
       if (err) throw err;
 

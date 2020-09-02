@@ -29,13 +29,19 @@ router.get("/", api.getUsers);
 
 router.get("/:id", api.getUser);
 
-
 /**
  * Deletes user record by id
  *
  * @param {number} id
  */
 router.delete("/:id", api.deleteUser);
+
+/**
+ * Login user record by entryId
+ *
+ * 
+ */
+router.post("/login", api.loginUser);
 
 
 export const userRoutes: Router = router;
