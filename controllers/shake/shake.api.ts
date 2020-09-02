@@ -1,12 +1,10 @@
 import { Request, Response, NextFunction } from "express";
-import { User } from "../../model/User";
+import { Shake } from "../../model/Shake";
 
 
 /**
  * Fetches all shakes
  * @api {get} /shakes
- *
- * @apiParam {Uuid} id
  *
  * @param {Request} req
  * @param {Response} res
@@ -15,5 +13,10 @@ import { User } from "../../model/User";
  * @returns {Promise<void>}
  */
 export function getShakes(req: Request, res: Response, next: NextFunction) {
-  res.json("Successfully Get Users");
+  Shake.find({}, (err, shake) => {
+    if(err) {
+      res.send(err);
+    }
+    res.json(shake);
+  })
 }

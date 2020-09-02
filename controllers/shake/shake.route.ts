@@ -7,7 +7,7 @@ const router: Router = Router();
 /**
  * Adds new shakes
  */
-router.post("/", api.getShakes);
+router.get("/", api.getShakes);
 
 
 export const shakeRoutes: Router = router;

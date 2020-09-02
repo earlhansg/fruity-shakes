@@ -65,7 +65,6 @@ export function getUsers(req: Request, res: Response, next: NextFunction) {
  */
 export function getUser(req: Request, res: Response, next: NextFunction) {
   res.json("Successfully Get User Info");
-  return User.find({})
 }
 
 
