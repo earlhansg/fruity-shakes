@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export interface ShakeInterface extends mongoose.Document {
+export interface IShake extends mongoose.Document {
   name: string;
   price: number;
   imageUrl: string;
@@ -21,4 +21,4 @@ export const ShakeSchema: mongoose.Schema = new mongoose.Schema({
     }
 });
 
-export const Shake = mongoose.model<ShakeInterface>("shake", ShakeSchema);
+export const Shake = mongoose.model<IShake>("shake", ShakeSchema);

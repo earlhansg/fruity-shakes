@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export interface SnackInterface extends mongoose.Document {
+export interface ISnack extends mongoose.Document {
   name: string;
   price: number;
   imageUrl: string;
@@ -21,4 +21,4 @@ export const SnackSchema: mongoose.Schema = new mongoose.Schema({
     }
 });
 
-export const Snack = mongoose.model<SnackInterface>("snack", SnackSchema);
+export const Snack = mongoose.model<ISnack>("snack", SnackSchema);

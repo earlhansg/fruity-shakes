@@ -1,10 +1,10 @@
 import * as mongoose from 'mongoose';
-import { UserInterface } from '../model/User';
-import { ShakeInterface } from '../model/Shake';
-import { SnackInterface } from '../model/Snack';
+import { IUser } from '../model/User';
+import { IShake } from '../model/Shake';
+import { ISnack } from '../model/Snack';
 
 export interface IItem extends mongoose.Document {
-    productID: ShakeInterface['_id'] | SnackInterface['_id'];
+    productID: IShake['_id'] | ISnack['_id'];
     quantity: number;
     name: string;
     price: number;
@@ -36,7 +36,7 @@ export interface IReceipt extends mongoose.Document {
     cashReceived: number;
     change: number;
     createdAt?: Date;
-    createdBy?: UserInterface['_id'];
+    createdBy?: IUser['_id'];
 }
 
 export const ReceiptSchema: mongoose.Schema = new mongoose.Schema({
