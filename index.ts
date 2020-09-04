@@ -12,7 +12,6 @@ import * as mongoose from "mongoose";
 
 import { userRoutes, shakeRoutes, snackRoutes, receiptRoutes } from '@app/controllers';
 
-
 export class Index {
   public app: express.Application;
   
