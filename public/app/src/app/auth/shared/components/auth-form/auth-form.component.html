@@ -8,8 +8,22 @@
         <!-- end of .form-header  -->
         <div class="form-input flex-column">
             <span class="form-input__label">Cashier Entry ID Code</span>
-            <input class="form-input__input form-control mt-3" type="text">
-            <button class="form-input__btn btn mt-3">Enter</button>
+            <form class="flex-column" 
+                  [formGroup]="userForm" 
+                  (ngSubmit)="onFormSubmit()">
+                  
+                <input class="form-control mt-3" 
+                       formControlName="entryId"
+                       minlength="6"
+                       required>
+                <span class="mt-1 text-danger"
+                      *ngIf="errorMessage | async">
+                      {{errorMessage | async}}
+                </span>
+                <button class="btn mt-3" 
+                        [disabled]="!userForm.valid" 
+                        type="submit">Enter</button>
+            </form>
         </div>
         <!-- end of .form-input  -->
     </div>

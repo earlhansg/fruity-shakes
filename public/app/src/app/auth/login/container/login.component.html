@@ -1,5 +1,7 @@
 <div class="container-fluid">
-    <app-auth-form></app-auth-form>
+    <app-auth-form 
+        [errorMessage]="error" 
+        (submitted)="onSubmittedForm($event)"></app-auth-form>
     <footer class="footer text-white position-absolute">
         © Earlhansg 2020
     </footer>

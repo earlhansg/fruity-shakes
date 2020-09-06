@@ -7,6 +7,8 @@ import { AuthModule } from '@app/auth/auth.module';
 import { OrderModule } from '@app/order/order.module';
 // component
 import { AppComponent } from '@app/app.component';
+// environtment
+import { environment } from '@root/environments/environment';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AppComponent } from '@app/app.component';
     AuthModule,
     OrderModule
   ],
-  providers: [],
+  providers: [
+    { provide: 'API_URL', useValue: environment.apiUrl }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

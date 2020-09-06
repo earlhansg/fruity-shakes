@@ -59,15 +59,20 @@
             color: $gray-700;
         }
 
-        &__input {
-            width: 70%;
-        }
-        
-        &__btn {
-            font-size: 1.1rem;
-            color: $purple-200;
-            background-color: $white;
-            border: 1px solid $purple-200;
+        form {
+            width: 100%;
+            @extend .vertical-horizontal-align;
+
+            input {
+                width: 70%;
+            }
+
+            button {
+                font-size: 1.1rem;
+                color: $purple-200;
+                background-color: $white;
+                border: 1px solid $purple-200;
+            }
         }
     }
    
