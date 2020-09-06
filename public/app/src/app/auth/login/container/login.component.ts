@@ -19,6 +19,7 @@ export class LoginComponent {
   onSubmittedForm(event) {
     this.authService.login(parseInt(event))
       .subscribe((user) => {
+        localStorage.setItem('currentUser', JSON.stringify(user));
         this.router.navigateByUrl('order');
       },(msg) => this.error = of(msg.error))
   }

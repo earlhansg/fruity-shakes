@@ -97,7 +97,6 @@ export function deleteUser(req: Request, res: Response, next: NextFunction) {
  */
 export async function loginUser (req: Request, res: Response, next: NextFunction) {
   const entryId = parseInt(req.body.entryId);
-  console.log(entryId, typeof entryId);
 
   try {
     const user = await User.findOne({ entryId });
@@ -105,12 +104,16 @@ export async function loginUser (req: Request, res: Response, next: NextFunction
     if(!user) {
       return res.status(400).json({ message: 'ID not exist!' });
     } else {
-      const payload = { user: { id: user.entryId } }
+      const { _id, firstName, lastName, gender } = user;
+      const payload = { user: { id: _id } }
       jwt.sign( 
         payload, 'mySecretKey', { expiresIn: 3600 },
         (err, token) => {
           if (err) throw err;
-          res.status(200).json({ token, message: 'Succesfully login!' });
+          res.status(200)
+            .json({ 
+              _id, firstName, lastName, gender, token, 
+              message: 'Succesfully login!' });
       });
     } 
     // end of the condition
