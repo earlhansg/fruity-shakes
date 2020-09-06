@@ -8,13 +8,13 @@ import { HttpMethodEnum } from '@shared/enums';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends RestService {
-  url = '/user';
+  url = '/user/login';
 
   constructor(http: HttpClient,
               @Inject('API_URL') protected baseUrl: string) { super(http, baseUrl); }
 
-  login(entryId: string): Observable<any> {
-    return this.request(this.url, HttpMethodEnum.POST, entryId); 
+  login(entryId: number): Observable<any> {
+    return this.request(this.url, HttpMethodEnum.POST, {entryId}); 
   }
 
 }

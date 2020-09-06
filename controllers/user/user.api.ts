@@ -97,25 +97,26 @@ export function deleteUser(req: Request, res: Response, next: NextFunction) {
  */
 export async function loginUser (req: Request, res: Response, next: NextFunction) {
   const entryId = parseInt(req.body.entryId);
+  console.log(entryId, typeof entryId);
 
   try {
     const user = await User.findOne({ entryId });
 
     if(!user) {
-      return res.status(400).json({ message: 'Id Not Exist' });
+      return res.status(400).json({ message: 'ID not exist!' });
     } else {
       const payload = { user: { id: user.entryId } }
       jwt.sign( 
         payload, 'mySecretKey', { expiresIn: 3600 },
         (err, token) => {
           if (err) throw err;
-          res.status(200).json({ token, message: 'Succesfully login' });
+          res.status(200).json({ token, message: 'Succesfully login!' });
       });
     } 
     // end of the condition
   } catch(e) {
     console.error(e);
-    res.status(500).json({ message: "Server Error"});
+    res.status(500).json({ message: "Server Error!"});
   }
 }
 

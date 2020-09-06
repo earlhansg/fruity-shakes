@@ -18,7 +18,7 @@
                        required>
                 <span class="mt-1 text-danger"
                       *ngIf="errorMessage | async">
-                      {{errorMessage | async}}
+                      {{(errorMessage | async).message}}
                 </span>
                 <button class="btn mt-3" 
                         [disabled]="!userForm.valid" 
