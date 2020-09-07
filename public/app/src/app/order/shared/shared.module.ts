@@ -14,6 +14,7 @@ import { PaymentModalComponent } from './components/payment-modal/payment-modal.
 // services
 import { ShakeService } from './services/shake.service';
 import { SnackService } from './services/snack.service';
+import { CartService } from './services/cart.service';
 
 @NgModule({
     imports: [
@@ -45,7 +46,8 @@ export class SharedModule {
           ngModule: SharedModule,
           providers: [
             ShakeService,
-            SnackService
+            SnackService,
+            CartService
           ]
         };
     }

@@ -1,5 +1,9 @@
 <app-header></app-header>
 <div class="d-flex">
     <router-outlet></router-outlet>
-    <app-cart></app-cart>
+    <ng-container *ngIf="cart$ | async">
+        <app-cart [orders]="cart$ | async"></app-cart>
+    </ng-container>
 </div>
+
+
