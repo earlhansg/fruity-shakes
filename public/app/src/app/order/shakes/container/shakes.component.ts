@@ -1,39 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+// service
+import { ShakeService } from '@app/order/shared/services/shake.service';
+// rxjs 
+import { Observable } from 'rxjs';
+// model
+import { Order } from '@app/order/shared/models/order.model';
+// icon
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
     selector: 'app-shakes',
     templateUrl: './shakes.component.html',
     styleUrls: [ './shakes.component.scss' ]
 })
-export class ShakesComponent {
+export class ShakesComponent implements OnInit {
 
-    shakes = [
-        {
-            name: 'Mango',
-            src: 'assets/images/shakes/mango.jpg',
-            price: 300
-        },
-        {
-            name: 'Watermelon',
-            src: 'assets/images/shakes/watermelon.jpg',
-            price: 700
-        },
-        {
-            name: 'Strawberry',
-            src: 'assets/images/shakes/strawberry.jpg',
-            price: 500
-        },
-        {
-            name: 'Banana',
-            src: 'assets/images/shakes/banana.jpg',
-            price: 100
-        },
-        {
-            name: 'Vanilla',
-            src: 'assets/images/shakes/vanilla.jpg',
-            price: 900
-        }
-    ]
-    constructor() {}
+shakes$: Observable<Order[]>;
+faSpinner = faSpinner;
+
+constructor(private shakeService: ShakeService) {}
+
+ngOnInit() {
+    this.shakes$ = this.shakeService.getShakes();
+}
 
 }

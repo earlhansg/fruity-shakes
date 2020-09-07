@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable, throwError, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { RestService } from '@shared/service';
 import { HttpMethodEnum } from '@shared/enums';

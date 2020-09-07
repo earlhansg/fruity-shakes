@@ -1,1 +1,9 @@
-<app-order-list [items]="snacks"></app-order-list>
+<ng-container *ngIf="(snacks$ | async) as snacks; else loading">
+    <app-order-list [items]="snacks"></app-order-list>
+</ng-container>
+
+<ng-template #loading>
+    <div class="loading m-2">
+        <fa-icon [icon]="faSpinner" [spin]="true" size="2x"></fa-icon>
+    </div>
+</ng-template>

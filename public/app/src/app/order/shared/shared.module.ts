@@ -11,6 +11,9 @@ import { OrderListComponent } from './components/order-list/order-list.component
 import { CartComponent } from './components/cart/cart.component';
 import { ReceiptModalComponent } from './components/receipt-modal/receipt-modal.component';
 import { PaymentModalComponent } from './components/payment-modal/payment-modal.component';
+// services
+import { ShakeService } from './services/shake.service';
+import { SnackService } from './services/snack.service';
 
 @NgModule({
     imports: [
@@ -32,15 +35,18 @@ import { PaymentModalComponent } from './components/payment-modal/payment-modal.
         OrderListComponent,
         CartComponent,
         ReceiptModalComponent,
-        PaymentModalComponent
-    ],
-    providers: []
+        PaymentModalComponent,
+        FontAwesomeModule
+    ]
 })
 export class SharedModule {
     static forRoot(): ModuleWithProviders<any> {
         return {
           ngModule: SharedModule,
-          providers: []
+          providers: [
+            ShakeService,
+            SnackService
+          ]
         };
     }
 }

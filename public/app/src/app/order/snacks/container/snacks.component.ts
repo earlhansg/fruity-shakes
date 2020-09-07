@@ -1,44 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+// service
+import { SnackService } from '@app/order/shared/services/snack.service';
+// rxjs 
+import { Observable } from 'rxjs';
+// model
+import { Order } from '@app/order/shared/models/order.model';
+// icon
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-snacks',
     templateUrl: './snacks.component.html',
     styleUrls: [ './snacks.component.scss' ]
 })
-export class SnacksComponent {
+export class SnacksComponent implements OnInit {
 
-    snacks = [
-        {
-            name: 'Burger',
-            src: 'assets/images/snacks/burger.jpg',
-            price: 300
-        },
-        {
-            name: 'Default',
-            src: 'assets/images/snacks/default.jpg',
-            price: 700
-        },
-        {
-            name: 'French fries',
-            src: 'assets/images/snacks/french-fries.jpg',
-            price: 500
-        },
-        {
-            name: 'Potato chips',
-            src: 'assets/images/snacks/potato-chips.jpg',
-            price: 100
-        },
-        {
-            name: 'Sandwich',
-            src: 'assets/images/snacks/sandwich.jpg',
-            price: 900
-        },
-        {
-            name: 'Shawarma',
-            src: 'assets/images/snacks/shawarma.jpg',
-            price: 900
-        }
-    ]
-    constructor() {}
+snacks$: Observable<Order[]>;
+faSpinner = faSpinner;
+
+constructor(private snackService: SnackService) {}
+
+ngOnInit() {
+    this.snacks$ = this.snackService.getSnacks();
+}
 
 }
