@@ -14,7 +14,7 @@ export abstract class RestService {
   protected request(relativeUrl: string, method: HttpMethodEnum, data?: any): Observable<any> {
     const url     = this.baseUrl + relativeUrl;
 
-    return this.http.post(url, data)
+    return this.http[method](url, data)
       .pipe(catchError(err => throwError(err)));
   }
 
