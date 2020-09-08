@@ -5,6 +5,7 @@ import { PaymentModalComponent } from '@app/order/shared/components/payment-moda
 import { CartService } from '../shared/services/cart.service';
 import { Observable } from 'rxjs';
 import { Cart } from '../shared/models/cart.model';
+import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 
 @Component({
     selector: 'app-order',
@@ -21,25 +22,30 @@ config = {
     class: "modal-dialog-centered custom-modal"
 };
 
-cart$: Observable<Cart[]>;
+// cart$: Observable<Cart[]>;
+
+form = this.fb.group({
+    items: this.fb.array([])
+})
 
 constructor(private modalService: BsModalService,
-            private cartService: CartService) {}
+            private cartService: CartService,
+            private fb: FormBuilder) {}
 
 
 ngOnInit() {
     // this.openModalWithComponent();
-    this.cart$ = this.cartService.orders;
+    // this.cart$ = this.cartService.orders;
 }
 
-// openModalWithComponent() {
-//     const initialState = {
-//       title: 'Modal with component'
-//     };
+openModalWithComponent() {
+    const initialState = {
+      title: 'Modal with component'
+    };
 
-//     this.bsModalRef = this.modalService.show(ReceiptModalComponent, 
-//         Object.assign(this.config, {initialState}));
-// }
+    this.bsModalRef = this.modalService.show(ReceiptModalComponent, 
+        Object.assign(this.config, {initialState}));
+}
 
 // openModalWithComponent() {
 //     const initialState = {
@@ -49,6 +55,20 @@ ngOnInit() {
 //     this.bsModalRef = this.modalService.show(PaymentModalComponent, 
 //         Object.assign(this.config, {initialState}));
 // }
+
+createItem(item) {
+    return new FormGroup({
+        orderId: new FormControl(parseInt(item._id, 10) || ''),
+        quantity: new FormControl(item.quantity || 1),
+        price: new FormControl(item.price),
+        name: new FormControl(item.name)
+    });
+}
+
+addtoCart() {
+    const control = this.form.get('items') as FormArray;
+    control.push(this.createItem({_id: 22111, quantity: 2, price: 200, name: 'Mango'}));
+}
 
 
 }

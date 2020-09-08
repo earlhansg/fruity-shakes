@@ -128,21 +128,25 @@
             <span>Jan. 28, 2017 | 17:00:00</span>
         </div>
         <div class="cart-container__form border-left-0 border-right-0">
-            <div class="order d-flex align-items-center pt-3 pb-3"
-                 *ngFor="let order of orders">
-                <span class="order-icon material-icons">delete_forever</span>
-                <div class="order-details d-flex flex-column">
-                    <span>{{order.name}}</span>
-                    <span>${{order.price}}</span>
-                </div>
-                <div class="order-input d-flex align-items-center pt-3 pb-3">
-                    <span class="material-icons">control_point</span>
-                    <span>
-                        <input type="text">
-                    </span>
-                    <span class="material-icons">remove_circle</span>
-                </div>
-            </div>
+            <form [formGroup]="parent">
+                <ng-container formArrayName="items">
+                    <div class="order d-flex align-items-center pt-3 pb-3"
+                         *ngFor="let order of orders; index as i;">
+                        <span class="order-icon material-icons">delete_forever</span>
+                        <div class="order-details d-flex flex-column">
+                            <span>{{order.value.name}}</span>
+                            <span>${{order.value.price}}</span>
+                        </div>
+                        <div class="order-input d-flex align-items-center pt-3 pb-3">
+                            <span class="material-icons">control_point</span>
+                            <span>
+                                <input type="text" [formGroupName]="i">
+                            </span>
+                            <span class="material-icons">remove_circle</span>
+                        </div>
+                    </div>
+                </ng-container>
+            </form>
         </div>
         <div class="cart-container__event d-flex flex-column mt-2">
             <button class="btn">Pay</button>

@@ -1,9 +1,8 @@
 <app-header></app-header>
 <div class="d-flex">
     <router-outlet></router-outlet>
-    <ng-container *ngIf="cart$ | async">
-        <app-cart [orders]="cart$ | async"></app-cart>
-    </ng-container>
+    <!-- <button (click)="addtoCart()">Add</button> -->
+    <app-cart [parent]="form"></app-cart>
 </div>
 
 
