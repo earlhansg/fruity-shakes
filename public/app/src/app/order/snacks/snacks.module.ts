@@ -12,7 +12,7 @@ import { SnacksComponent } from './container/snacks.component';
   imports: [
     CommonModule,
     SnacksRoutingModule,
-    SharedModule.forRoot()
+    SharedModule
   ],
   declarations: [ SnacksComponent ]
 })

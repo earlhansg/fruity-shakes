@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 // service
 import { SnackService } from '@app/order/shared/services/snack.service';
+import { CartService } from '@app/order/shared/services/cart.service';
 // rxjs 
 import { Observable } from 'rxjs';
 // model
 import { Order } from '@app/order/shared/models/order.model';
+import { Cart } from '@app/order/shared/models/cart.model';
 // icon
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,10 +20,15 @@ export class SnacksComponent implements OnInit {
 snacks$: Observable<Order[]>;
 faSpinner = faSpinner;
 
-constructor(private snackService: SnackService) {}
+constructor(private snackService: SnackService,
+            private cartService: CartService) {}
 
 ngOnInit() {
     this.snacks$ = this.snackService.getSnacks();
+}
+
+onAddItem(event: Cart) {
+    this.cartService.addtoCart(event);
 }
 
 }

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ReceiptModalComponent } from '@app/order/shared/components/receipt-modal/receipt-modal.component';
 import { PaymentModalComponent } from '@app/order/shared/components/payment-modal/payment-modal.component';
-import { CartService } from '../shared/services/cart.service';
-import { Observable } from 'rxjs';
-import { Cart } from '../shared/models/cart.model';
-import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+// service 
+import { CartService } from '@order/shared/services/cart.service';
 
 @Component({
     selector: 'app-order',
@@ -21,21 +20,15 @@ config = {
     ignoreBackdropClick: false,
     class: "modal-dialog-centered custom-modal"
 };
-
-// cart$: Observable<Cart[]>;
-
-form = this.fb.group({
-    items: this.fb.array([])
-})
+form: FormGroup;
 
 constructor(private modalService: BsModalService,
-            private cartService: CartService,
-            private fb: FormBuilder) {}
+            private cartService: CartService) {}
 
 
 ngOnInit() {
     // this.openModalWithComponent();
-    // this.cart$ = this.cartService.orders;
+    this.form = this.cartService.form;
 }
 
 openModalWithComponent() {
@@ -55,20 +48,6 @@ openModalWithComponent() {
 //     this.bsModalRef = this.modalService.show(PaymentModalComponent, 
 //         Object.assign(this.config, {initialState}));
 // }
-
-createItem(item) {
-    return new FormGroup({
-        orderId: new FormControl(parseInt(item._id, 10) || ''),
-        quantity: new FormControl(item.quantity || 1),
-        price: new FormControl(item.price),
-        name: new FormControl(item.name)
-    });
-}
-
-addtoCart() {
-    const control = this.form.get('items') as FormArray;
-    control.push(this.createItem({_id: 22111, quantity: 2, price: 200, name: 'Mango'}));
-}
 
 
 }

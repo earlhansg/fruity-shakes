@@ -12,7 +12,7 @@ import { ShakesComponent } from './container/shakes.component';
   imports: [
     CommonModule,
     ShakesRoutingModule,
-    SharedModule.forRoot()
+    SharedModule
   ],
   declarations: [ ShakesComponent ]
 })

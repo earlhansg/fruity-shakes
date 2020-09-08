@@ -1,22 +1,33 @@
 import { Injectable } from '@angular/core';
-// rxjs
-import { BehaviorSubject } from 'rxjs';
+import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
 // model 
 import { Cart } from '../models/cart.model';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
 
-items: Cart[] = [];
+form = this.fb.group({
+    items: this.fb.array([])
+})
 
-private subject = new BehaviorSubject<Cart[]>(this.items);
+constructor(private fb: FormBuilder) {}
 
-get orders() {
-    return this.subject.asObservable();
+createItem(item) {
+    return new FormGroup({
+        orderId: new FormControl(parseInt(item._id, 10) || ''),
+        quantity: new FormControl(item.quantity || 1),
+        price: new FormControl(item.price),
+        name: new FormControl(item.name)
+    });
 }
 
-addToCart(order: Cart) {
-    this.items.push(order);
+addtoCart(item: Cart) {
+    const control = this.form.get('items') as FormArray;
+    control.push(this.createItem(item));
+}
+
+get items() {
+    return (this.form.get('items') as FormArray).controls;
 }
 
 }

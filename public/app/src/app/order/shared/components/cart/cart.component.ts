@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { Cart } from '@order/shared/models/cart.model';
+import { CartService } from '../../services/cart.service';
 
 @Component({
     selector: 'app-cart',
@@ -14,10 +15,15 @@ export class CartComponent {
 @Input()
 parent: FormGroup;
 
-constructor(private fb: FormBuilder) {}
+constructor(private fb: FormBuilder,
+            private cartService: CartService) {}
+
+// get orders() {
+//     return (this.parent.get('items') as FormArray).controls;
+// }
 
 get orders() {
-    return (this.parent.get('items') as FormArray).controls;
+    return this.cartService.items;
 }
 
 }
