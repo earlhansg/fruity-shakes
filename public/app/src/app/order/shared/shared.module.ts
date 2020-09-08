@@ -11,6 +11,7 @@ import { OrderListComponent } from './components/order-list/order-list.component
 import { CartComponent } from './components/cart/cart.component';
 import { ReceiptModalComponent } from './components/receipt-modal/receipt-modal.component';
 import { PaymentModalComponent } from './components/payment-modal/payment-modal.component';
+import { OrderCounterComponent } from './components/order-counter/order-counter.component';
 // services
 import { ShakeService } from './services/shake.service';
 import { SnackService } from './services/snack.service';
@@ -29,7 +30,8 @@ import { CartService } from './services/cart.service';
         OrderListComponent,
         CartComponent,
         ReceiptModalComponent,
-        PaymentModalComponent
+        PaymentModalComponent,
+        OrderCounterComponent
     ],
     exports: [
         HeaderComponent,
@@ -37,7 +39,8 @@ import { CartService } from './services/cart.service';
         CartComponent,
         ReceiptModalComponent,
         PaymentModalComponent,
-        FontAwesomeModule
+        FontAwesomeModule,
+        OrderCounterComponent
     ]
 })
 export class SharedModule {

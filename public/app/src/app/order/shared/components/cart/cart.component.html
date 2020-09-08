@@ -114,7 +114,6 @@
         </div>
     </div>
 </div> -->
-
 <div class="cart">
     <div class="cart-container">
         <div class="cart-container__logo d-flex align-items-center">
@@ -134,15 +133,15 @@
                         <span class="order-icon material-icons">delete_forever</span>
                         <div class="order-details d-flex flex-column">
                             <span>{{order.value.name}}</span>
-                            <span>${{order.value.price}}</span>
+                            <span>${{order.value.price * order.value.quantity}}</span>
                         </div>
-                        <div class="order-input d-flex align-items-center pt-3 pb-3">
-                            <span class="material-icons">control_point</span>
-                            <span>
-                                <input type="text" [formGroupName]="i">
-                            </span>
-                            <span class="material-icons">remove_circle</span>
-                        </div>
+                        <ng-container [formGroupName]="i">
+                            <order-counter 
+                                [step]="1" 
+                                [min]="1" 
+                                [max]="99"
+                                formControlName="quantity"></order-counter>
+                        </ng-container>
                     </div>
                 </ng-container>
             </form>

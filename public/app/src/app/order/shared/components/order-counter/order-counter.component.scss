@@ -1,0 +1,21 @@
+@import 'main';
+
+.order-input {
+    width: 30%;
+    span:first-child {
+        color: $purple-200;
+        font-size: 1.3rem;
+    }
+    span:last-child {
+        color: $purple-200;
+        font-size: 1.3rem;
+    }
+    span > input {
+        background-color: $gray-100;
+        width: 2.9rem;
+        height: 1.5rem;
+        border-radius: 15px;
+        text-align: center;
+        padding-left: 0.8rem;
+    }
+}
