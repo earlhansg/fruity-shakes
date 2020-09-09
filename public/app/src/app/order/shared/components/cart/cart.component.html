@@ -114,6 +114,7 @@
         </div>
     </div>
 </div> -->
+
 <div class="cart">
     <div class="cart-container">
         <div class="cart-container__logo d-flex align-items-center">
@@ -130,7 +131,8 @@
                 <ng-container formArrayName="items">
                     <div class="order d-flex align-items-center pt-3 pb-3"
                          *ngFor="let order of orders; index as i;">
-                        <span class="order-icon material-icons">delete_forever</span>
+                        <span class="order-icon material-icons cursor-pointer" 
+                             (click)="removeToCart(order, i)">delete_forever</span>
                         <div class="order-details d-flex flex-column">
                             <span>{{order.value.name}}</span>
                             <span>${{order.value.price * order.value.quantity}}</span>

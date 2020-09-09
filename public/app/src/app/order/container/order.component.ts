@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormArray } from '@angular/forms';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ReceiptModalComponent } from '@app/order/shared/components/receipt-modal/receipt-modal.component';
 import { PaymentModalComponent } from '@app/order/shared/components/payment-modal/payment-modal.component';
@@ -48,6 +48,11 @@ openModalWithComponent() {
 //     this.bsModalRef = this.modalService.show(PaymentModalComponent, 
 //         Object.assign(this.config, {initialState}));
 // }
+
+onRemoveItem({ group, index }: { group: FormGroup, index: number }) {
+    const control = this.cartService.form.get('items') as FormArray;
+    control.removeAt(index);
+}
 
 
 }

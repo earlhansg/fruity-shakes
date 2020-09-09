@@ -1,5 +1,7 @@
 <ng-container *ngIf="(shakes$ | async) as shakes; else loading">
-    <app-order-list [items]="shakes" (addItem)="onAddItem($event)"></app-order-list>
+    <app-order-list 
+        [items]="shakes" 
+        (addItem)="onAddItem($event)"></app-order-list>
 </ng-container>
 
 <ng-template #loading>

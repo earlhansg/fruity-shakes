@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 // service
 import { CartService } from '../../services/cart.service';
@@ -13,10 +13,17 @@ export class CartComponent {
 @Input()
 parent: FormGroup;
 
+@Output()
+removeItem = new EventEmitter<any>();
+
 constructor(private cartService: CartService) {}
 
 get orders() {
     return this.cartService.items;
+}
+
+removeToCart(group, index) {
+    this.removeItem.emit({ group, index });
 }
 
 }

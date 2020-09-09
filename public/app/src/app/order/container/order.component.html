@@ -2,7 +2,7 @@
 <div class="d-flex">
     <router-outlet></router-outlet>
     <!-- <button (click)="addtoCart()">Add</button> -->
-    <app-cart [parent]="form"></app-cart>
+    <app-cart [parent]="form" (removeItem)="onRemoveItem($event)"></app-cart>
 </div>
 
 

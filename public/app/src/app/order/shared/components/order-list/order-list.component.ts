@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Cart } from '../../models/cart.model';
+// model 
+import { Cart } from '@order/shared/models/cart.model';
 
 interface Order {
     name: string;
@@ -18,6 +19,7 @@ items: Order[];
 
 @Output()
 addItem = new EventEmitter<Cart>();
+
 
 constructor() {}
 
