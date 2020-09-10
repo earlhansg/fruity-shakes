@@ -21,6 +21,9 @@ config = {
     class: "modal-dialog-centered custom-modal"
 };
 form: FormGroup;
+subTotal: any;
+tax: any;
+total: any;
 
 constructor(private modalService: BsModalService,
             private cartService: CartService) {}
@@ -31,14 +34,14 @@ ngOnInit() {
     this.form = this.cartService.form;
 }
 
-openModalWithComponent() {
-    const initialState = {
-      title: 'Modal with component'
-    };
+// openModalWithComponent() {
+//     const initialState = {
+//       title: 'Modal with component'
+//     };
 
-    this.bsModalRef = this.modalService.show(ReceiptModalComponent, 
-        Object.assign(this.config, {initialState}));
-}
+//     this.bsModalRef = this.modalService.show(ReceiptModalComponent, 
+//         Object.assign(this.config, {initialState}));
+// }
 
 // openModalWithComponent() {
 //     const initialState = {
@@ -49,9 +52,17 @@ openModalWithComponent() {
 //         Object.assign(this.config, {initialState}));
 // }
 
+
 onRemoveItem({ group, index }: { group: FormGroup, index: number }) {
     const control = this.cartService.form.get('items') as FormArray;
     control.removeAt(index);
+}
+
+onPay([cartSubTotal, cartTax, cartTotal]) {
+    const initialState = { cartTotal, cartSubTotal, cartTax };
+
+    this.bsModalRef = this.modalService.show(PaymentModalComponent, 
+        Object.assign(this.config, {initialState}));
 }
 
 

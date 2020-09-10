@@ -8,6 +8,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class PaymentModalComponent {
 cartTotal: number;
+cartSubTotal: number;
+cartTax: number;
 
 constructor() {}
 

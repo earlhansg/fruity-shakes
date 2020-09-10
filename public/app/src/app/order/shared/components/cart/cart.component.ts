@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 // service
 import { CartService } from '@order/shared/services/cart.service';
 // rxjs 
-import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
+import { Observable, BehaviorSubject, combineLatest, Subscription } from 'rxjs';
 import { tap, map, share, startWith } from 'rxjs/operators';
 // model 
 import { Cart } from '@order/shared/models/cart.model';
@@ -21,15 +21,27 @@ parent: FormGroup;
 @Output()
 removeItem = new EventEmitter<any>();
 
+@Output()
+pay = new EventEmitter<any>();
+
 todayDate = new Date();
 
-displaySubTotal$: Observable<number>;
-displayTotal$: Observable<any>;
+displaySubTotal: number;
+displayTotal: number;
 tax$ = new BehaviorSubject<number>(0);
 
+subscription: Subscription;
+
 constructor(private cartService: CartService) {
-    this.displaySubTotal$ = this.subTotal;
-    this.displayTotal$ = this.total;
+    this.subscription = combineLatest( this.subTotal, this.total)
+    .subscribe((value) => {
+        this.displaySubTotal = value[0];
+        this.displayTotal = value[1];
+    })
+}
+
+ngOnDestroy() {
+    this.subscription.unsubscribe();
 }
 
 get orders() {
@@ -63,4 +75,8 @@ get total(): Observable<number> {
     )
 }
 
+submitForm() {
+    this.pay.emit([this.displaySubTotal, this.tax$.value, this.displayTotal]);
 }
+
+}   

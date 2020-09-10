@@ -36,7 +36,7 @@
         <div class="cart-container__total">
             <div class="cart-subtotal d-flex">
                 <span class="mr-auto">Sub Total:</span>
-                <span>${{displaySubTotal$ | async | number:'1.2-2'}}</span>
+                <span>${{displaySubTotal | number:'1.2-2'}}</span>
             </div>
             <!-- end of .cart-subtotal  -->
             <div class="cart-tax d-flex">
@@ -46,13 +46,13 @@
             <!-- end of .cart-tax  -->
             <div class="cart-total d-flex mt-1">
                 <span class="mr-auto">Total:</span>
-                <span>${{displayTotal$ | async | number:'1.2-2'}}</span>
+                <span>${{displayTotal | number:'1.2-2'}}</span>
             </div>
             <!-- end of .cart-total  -->
         </div>
         <!-- end of .cart-container__total  -->
         <div class="cart-container__event d-flex flex-column mt-2">
-            <button class="btn">Pay</button>
+            <button class="btn" (click)="submitForm()">Pay</button>
         </div>
         <!-- end of .cart-container__event  -->
     </div>
