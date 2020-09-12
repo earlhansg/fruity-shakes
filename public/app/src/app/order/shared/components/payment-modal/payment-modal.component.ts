@@ -8,6 +8,7 @@ import { ReceiptModalComponent } from '@app/order/shared/components/receipt-moda
 import { BehaviorSubject } from 'rxjs';
 // service
 import { CartService } from '@app/order/shared/services/cart.service';
+import { ReceiptService } from '@app/order/shared/services/receipt.service';
 // model
 import { Cart } from '@app/order/shared/models/cart.model';
 
@@ -31,7 +32,8 @@ isClose = new BehaviorSubject<boolean>(false)
 
 constructor(private fb: FormBuilder,
             private modalService: BsModalService,
-            private cartService: CartService) {}
+            private cartService: CartService,
+            private receiptService: ReceiptService) {}
 
 ngOnInit() {
     this.cartItems = this.cartService.form.get('items').value;
@@ -40,23 +42,26 @@ ngOnInit() {
     })
 }
 
-enterPayment() {
+async enterPayment() {
     const cashReceived = this.paymentForm.get('money').value;
     const change = cashReceived - this.cartTotal;
     const initialState = {
-        cartTotal: this.cartTotal, 
-        cartSubTotal: this.cartSubTotal, 
-        cartTax: this.cartTax,
+        total: this.cartTotal, 
+        subTotal: this.cartSubTotal, 
+        tax: this.cartTax,
         cashReceived,
         change,
-        cartItems: this.cartItems
+        items: this.cartItems
     };
 
-    this.bsModalRef = this.modalService.show(ReceiptModalComponent, 
-        Object.assign(this.config, {initialState}));
-    this.paymentForm.reset();
-    this.cartService.resetCartForm();
-    this.isClose.next(true);
+    const payment =  await this.receiptService.addReceipt(initialState);
+    if(payment) {
+        this.bsModalRef = this.modalService.show(ReceiptModalComponent, 
+            Object.assign(this.config, {initialState}));
+        this.cartService.resetCartForm();
+        this.paymentForm.reset();
+        this.isClose.next(true);
+    }
 }
 
 }

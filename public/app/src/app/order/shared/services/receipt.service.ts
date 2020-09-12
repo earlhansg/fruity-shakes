@@ -1,8 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
-
 import { RestService } from '@shared/service';
 import { HttpMethodEnum } from '@shared/enums';
 // model
@@ -15,8 +13,8 @@ export class ReceiptService extends RestService {
   constructor(http: HttpClient,
               @Inject('API_URL') protected baseUrl: string) { super(http, baseUrl); }
 
-  addReceipt(body: Receipt): Observable<Receipt> {
-    return this.request(this.url, HttpMethodEnum.POST, body); 
+  addReceipt(body: Receipt): Promise<Receipt> {
+    return this.request(this.url, HttpMethodEnum.POST, body).toPromise(); 
   }
 
 }

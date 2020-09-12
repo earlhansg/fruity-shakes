@@ -13,12 +13,12 @@ import { Cart } from '@order/shared/models/cart.model';
 export class ReceiptModalComponent implements OnInit{
 
 title: string;
-cartTotal: number;
-cartSubTotal: number;
-cartTax: number;
+total: number;
+subTotal: number;
+tax: number;
 cashReceived: number;
 change: number;
-cartItems: Cart[];
+items: Cart[];
  
 constructor(public bsModalRef: BsModalRef) {}
  

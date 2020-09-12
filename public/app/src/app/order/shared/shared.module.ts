@@ -16,6 +16,7 @@ import { OrderCounterComponent } from './components/order-counter/order-counter.
 import { ShakeService } from './services/shake.service';
 import { SnackService } from './services/snack.service';
 import { CartService } from './services/cart.service';
+import { ReceiptService } from './services/receipt.service';
 
 @NgModule({
     imports: [
@@ -50,7 +51,8 @@ export class SharedModule {
           providers: [
             ShakeService,
             SnackService,
-            CartService
+            CartService,
+            ReceiptService
           ]
         };
     }

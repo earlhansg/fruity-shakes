@@ -14,7 +14,7 @@ constructor(private fb: FormBuilder) {}
 
 createItem(item) {
     return new FormGroup({
-        orderId: new FormControl(parseInt(item._id, 10) || ''),
+        _id: new FormControl(item._id),
         quantity: new FormControl(item.quantity || 1),
         price: new FormControl(item.price),
         name: new FormControl(item.name)

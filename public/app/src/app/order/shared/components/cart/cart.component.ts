@@ -33,7 +33,7 @@ tax$ = new BehaviorSubject<number>(0);
 subscription: Subscription;
 
 constructor(private cartService: CartService) {
-    this.subscription = combineLatest( this.subTotal, this.total)
+    this.subscription = combineLatest( [this.subTotal, this.total])
     .subscribe((value) => {
         this.displaySubTotal = value[0];
         this.displayTotal = value[1];
@@ -68,7 +68,7 @@ get subTotal(): Observable<number> {
 }
 
 get total(): Observable<number> {
-    return combineLatest(this.subTotal, this.tax$)
+    return combineLatest([this.subTotal, this.tax$])
     .pipe(
         map(([subTotal, tax]) =>  subTotal - tax ),
         startWith(0)
