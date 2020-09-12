@@ -7,9 +7,13 @@
     <div class="payment-form m-4 d-flex flex-column align-items-center">
         <span class="payment-form__header">Cash Received</span>
         <div class="payment-form__input text-center mt-2">
-            <input type="text">
+            <form [formGroup]="paymentForm">
+                <input type="number" formControlName="money">
+            </form>
         </div>
-        <button class="btn mt-3">Enter</button>
+        <button class="btn mt-3" 
+                (click)="enterPayment()"
+                [disabled]="!paymentForm.valid">Enter</button>
     </div>
     <!-- end of .payment-form  -->
 </div>
