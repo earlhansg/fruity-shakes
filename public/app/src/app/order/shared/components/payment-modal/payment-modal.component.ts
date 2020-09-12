@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ReceiptModalComponent } from '@app/order/shared/components/receipt-modal/receipt-modal.component';
@@ -18,15 +18,9 @@ cartTotal: number;
 cartSubTotal: number;
 cartTax: number;
 cartItems: Cart[];
+config: any;
 
 bsModalRef: BsModalRef;
-config = {
-    animated: true,
-    keyboard: true,
-    backdrop: true,
-    ignoreBackdropClick: false,
-    class: "modal-dialog-centered custom-modal"
-};
 
 paymentForm: FormGroup;
 isClose = new BehaviorSubject<boolean>(false)
@@ -57,6 +51,7 @@ enterPayment() {
     this.bsModalRef = this.modalService.show(ReceiptModalComponent, 
         Object.assign(this.config, {initialState}));
     this.paymentForm.reset();
+    this.cartService.resetCartForm();
     this.isClose.next(true);
 }
 

@@ -60,7 +60,7 @@ onRemoveItem({ group, index }: { group: FormGroup, index: number }) {
 }
 
 onPay([cartSubTotal, cartTax, cartTotal]) {
-    const initialState = { cartTotal, cartSubTotal, cartTax };
+    const initialState = { cartTotal, cartSubTotal, cartTax, config: this.config};
     
     this.bsModalRef = this.modalService.show(PaymentModalComponent, 
         Object.assign(this.config, {initialState}));

@@ -30,4 +30,11 @@ get items() {
     return (this.form.get('items') as FormArray).controls;
 }
 
+resetCartForm() {
+    const control = <FormArray>this.form.controls['items'];
+    for(let i = control.length-1; i >= 0; i--) {
+        control.removeAt(i)
+    }
+}
+
 }
