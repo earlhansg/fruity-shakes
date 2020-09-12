@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormGroup, FormArray } from '@angular/forms';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ReceiptModalComponent } from '@app/order/shared/components/receipt-modal/receipt-modal.component';
 import { PaymentModalComponent } from '@app/order/shared/components/payment-modal/payment-modal.component';
 // service 
 import { CartService } from '@order/shared/services/cart.service';
+import { Template } from '@angular/compiler/src/render3/r3_ast';
 
 @Component({
     selector: 'app-order',
@@ -60,10 +61,15 @@ onRemoveItem({ group, index }: { group: FormGroup, index: number }) {
 
 onPay([cartSubTotal, cartTax, cartTotal]) {
     const initialState = { cartTotal, cartSubTotal, cartTax };
-
+    
     this.bsModalRef = this.modalService.show(PaymentModalComponent, 
         Object.assign(this.config, {initialState}));
+
+    this.bsModalRef.content.isClose
+    .subscribe((closePaymentModal) => closePaymentModal ? this.bsModalRef.hide():  null)
 }
+
+
 
 
 }

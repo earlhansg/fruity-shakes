@@ -13,46 +13,38 @@
                 Price
             </span>
         </div>
-        <div class="receipt-body__content">
+        <div class="receipt-body__content" *ngFor="let item of cartItems">
             <div class="d-flex mt-2">
-                <span class="mr-auto">2 x Mango Shake</span>
-                <span class="mr-3">$ 8.00</span>
-            </div>
-            <div class="d-flex mt-2">
-                <span class="mr-auto">1 x Banana Shake</span>
-                <span class="mr-3">$ 8.00</span>
-            </div>
-            <div class="d-flex mt-2">
-                <span class="mr-auto">1 x Strawberry Shake</span>
-                <span class="mr-3">$ 3.00</span>
+                <span class="mr-auto">{{item.quantity}} x {{item.name}}</span>
+                <span class="mr-3">${{item.price}}</span>
             </div>
         </div>
         <div class="receipt-body__subtotal mt-1">
             <div class="d-flex">
                 <span class="mr-auto">Sub Total:</span>
-                <span class="mr-3">$ 22.00</span>
+                <span class="mr-3">${{cartSubTotal}}</span>
             </div>
             <div class="d-flex mt-2">
                 <span class="mr-auto">Tax 10%:</span>
-                <span class="mr-3">$ 2.20</span>
+                <span class="mr-3">${{cartTax}}</span>
             </div>
         </div>
         <div class="receipt-body__total mt-1">
             <div class="d-flex mt-3">
                 <span class="mr-auto">Total:</span>
-                <span class="mr-3">$ 24.20</span>
+                <span class="mr-3">${{cartTotal}}</span>
             </div>
             <div class="d-flex mt-2">
                 <span class="mr-auto">Cash Received:</span>
-                <span class="mr-3">$ 30.00</span>
+                <span class="mr-3">${{cashReceived}}</span>
             </div>
             <div class="d-flex mt-1">
                 <span class="mr-auto">Change:</span>
-                <span class="mr-3">$ 5.80</span>
+                <span class="mr-3">${{change}}</span>
             </div>
         </div>
         <div class="receipt-body__event text-center mt-3">
-            <button class="btn">Close</button>
+            <button class="btn" (click)="bsModalRef.hide()">Close</button>
         </div>
     </div>
 </div>
