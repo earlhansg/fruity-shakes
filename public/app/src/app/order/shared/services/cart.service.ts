@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
 // model 
-import { Cart } from '../models/cart.model';
+import { Cart } from '@order/shared/models/cart.model';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {

@@ -4,13 +4,17 @@ import { IShake } from '../model/Shake';
 import { ISnack } from '../model/Snack';
 
 export interface IItem extends mongoose.Document {
-    productID: IShake['_id'] | ISnack['_id'];
+    _id: IShake['_id'] | ISnack['_id'];
     quantity: number;
     name: string;
     price: number;
 }
 
 export const ItemSchema: mongoose.Schema = new mongoose.Schema({
+    _id: {
+        type: Number,
+        required: true
+    },
     quantity: {
         type: Number,
         required: true
@@ -28,8 +32,7 @@ export const ItemSchema: mongoose.Schema = new mongoose.Schema({
 export const Item = mongoose.model<IItem>("item", ItemSchema);
 
 export interface IReceipt extends mongoose.Document {
-    shakes: IItem[];
-    snacks: IItem[];
+    items: IItem[];
     subTotal: number;
     tax: number;
     total: number;
@@ -40,11 +43,7 @@ export interface IReceipt extends mongoose.Document {
 }
 
 export const ReceiptSchema: mongoose.Schema = new mongoose.Schema({
-    shakes: {
-        type: Array,
-        required: false
-    },
-    snacks: {
+    items: {
         type: Array,
         required: false
     },

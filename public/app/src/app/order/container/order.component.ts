@@ -1,11 +1,11 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray } from '@angular/forms';
+// ngx-bootstrap 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { ReceiptModalComponent } from '@app/order/shared/components/receipt-modal/receipt-modal.component';
+// component 
 import { PaymentModalComponent } from '@app/order/shared/components/payment-modal/payment-modal.component';
 // service 
 import { CartService } from '@order/shared/services/cart.service';
-import { Template } from '@angular/compiler/src/render3/r3_ast';
 
 @Component({
     selector: 'app-order',
@@ -31,27 +31,8 @@ constructor(private modalService: BsModalService,
 
 
 ngOnInit() {
-    // this.openModalWithComponent();
     this.form = this.cartService.form;
 }
-
-// openModalWithComponent() {
-//     const initialState = {
-//       title: 'Modal with component'
-//     };
-
-//     this.bsModalRef = this.modalService.show(ReceiptModalComponent, 
-//         Object.assign(this.config, {initialState}));
-// }
-
-// openModalWithComponent() {
-//     const initialState = {
-//         cartTotal: 24.20
-//     };
-
-//     this.bsModalRef = this.modalService.show(PaymentModalComponent, 
-//         Object.assign(this.config, {initialState}));
-// }
 
 
 onRemoveItem({ group, index }: { group: FormGroup, index: number }) {

@@ -1,11 +1,15 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// ngx-bootstrap 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+// component 
 import { ReceiptModalComponent } from '@app/order/shared/components/receipt-modal/receipt-modal.component';
-import { CartService } from '@app/order/shared/services/cart.service';
-import { Cart } from '@app/order/shared/models/cart.model';
+// rxjs 
 import { BehaviorSubject } from 'rxjs';
+// service
+import { CartService } from '@app/order/shared/services/cart.service';
+// model
+import { Cart } from '@app/order/shared/models/cart.model';
 
 @Component({
     selector: 'app-payment-modal',

@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+// ngx-bootstrap 
 import { BsModalRef } from 'ngx-bootstrap/modal';
+// model
 import { Cart } from '@order/shared/models/cart.model';
 
 @Component({
