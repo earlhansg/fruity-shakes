@@ -17,4 +17,8 @@ export class AuthService extends RestService {
     return this.request(this.url, HttpMethodEnum.POST, {entryId}); 
   }
 
+  logout(): void {
+    localStorage.removeItem('currentUser')
+  }
+
 }
