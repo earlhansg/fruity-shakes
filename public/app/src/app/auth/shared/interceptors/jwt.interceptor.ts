@@ -27,7 +27,7 @@ export class JwtInterceptor implements HttpInterceptor {
                 if(error.status === 403) {
                     console.log('Interceptor code 403');
                     this.authService.logout();
-                    this.router.navigateByUrl('auth');
+                    this.router.navigateByUrl('auth/login');
                     return throwError(error);
                 }
                 return throwError(error);
