@@ -22,17 +22,6 @@ export class AuthService extends RestService {
     return this.request(this.url, HttpMethodEnum.POST, {entryId}); 
   }
 
-  getToken(): string {
-    let loggedUser = JSON.parse(localStorage.getItem('currentUser'));
-    let token = loggedUser && loggedUser.token;
-    return token ? token : '';
-  }
-
-  isAuthenticated(): boolean {
-    const token = this.getToken();
-    return token != '' ? !jwtHelper.isTokenExpired(token) : false;
-  }
-
   logout(): void {
     localStorage.removeItem('currentUser')
   }

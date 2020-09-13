@@ -24,8 +24,8 @@ export class JwtInterceptor implements HttpInterceptor {
         return next.handle(request)
         .pipe(
             catchError((error: HttpErrorResponse) => {
+            // the token is expired then user should login again 
                 if(error.status === 403) {
-                    console.log('Interceptor code 403');
                     this.authService.logout();
                     this.router.navigateByUrl('auth/login');
                     return throwError(error);
