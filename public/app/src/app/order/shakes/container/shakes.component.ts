@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray } from '@angular/forms';
 // service
 import { ShakeService } from '@app/order/shared/services/shake.service';
 import { CartService } from '@app/order/shared/services/cart.service';
@@ -28,8 +29,15 @@ ngOnInit() {
     this.shakes$ = this.shakeService.getShakes();
 }
 
-onAddItem(event: Cart) {
-    this.cartService.addtoCart(event);
+onAddItem(item: Cart) {
+    const isExist = this.cartService.existInCart(item._id);
+
+    if(isExist) {
+        const cartItem = this.cartService.existInCart(item._id, true);
+        const index = this.cartService.itemIndex(item._id);
+        this.cartService.updateItemQuantity(cartItem.quantity, index);
+    }
+    else this.cartService.addtoCart(item);
 }
 
 }

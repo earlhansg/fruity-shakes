@@ -18,7 +18,7 @@ export class OrderListComponent {
 items: Order[];
 
 @Output()
-addItem = new EventEmitter<Cart>();
+addItem = new EventEmitter();
 
 
 constructor() {}

@@ -27,8 +27,15 @@ ngOnInit() {
     this.snacks$ = this.snackService.getSnacks();
 }
 
-onAddItem(event: Cart) {
-    this.cartService.addtoCart(event);
+onAddItem(item: Cart) {
+    const isExist = this.cartService.existInCart(item._id);
+
+    if(isExist) {
+        const cartItem = this.cartService.existInCart(item._id, true);
+        const index = this.cartService.itemIndex(item._id);
+        this.cartService.updateItemQuantity(cartItem.quantity, index);
+    }
+    else this.cartService.addtoCart(item);
 }
 
 }
