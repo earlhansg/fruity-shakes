@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 // service
 import { AuthService } from '@app/auth/shared/services/auth.service';
 // rxjs
@@ -12,12 +12,11 @@ import { Observable, of } from 'rxjs';
 })
 export class LoginComponent {
   error: Observable<string>;
-  
   constructor(private authService: AuthService,
               private router: Router) {}
 
   onSubmittedForm(event) {
-    this.authService.login(parseInt(event))
+    this.authService.login(parseInt(event, 0))
       .subscribe((user) => {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.router.navigateByUrl('order');

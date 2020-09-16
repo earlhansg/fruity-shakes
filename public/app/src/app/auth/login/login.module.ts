@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// modules 
+// modules
 import { SharedModule } from '@app/auth/shared/share.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-// components 
+// components
 import { LoginComponent } from './container/login.component';
-// routing 
+// routing
 import { LoginRoutingModule } from './login-routing.module';
 
 
