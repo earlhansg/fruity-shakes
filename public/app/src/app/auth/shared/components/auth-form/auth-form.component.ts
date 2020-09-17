@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-auth-form',
@@ -9,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthFormComponent {
 @Input()
-errorMessage: Observable<string>;
+errorMessage: string;
 
 @Output()
 submitted: EventEmitter<any> = new EventEmitter<any>();
