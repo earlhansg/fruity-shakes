@@ -2,7 +2,7 @@ import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { SnackService } from './snack.service';
 
-describe('ShakeService', () => {
+describe('SnackService', () => {
   let injector: TestBed;
   let service: SnackService;
   let httpMock: HttpTestingController;
