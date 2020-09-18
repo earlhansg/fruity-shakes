@@ -1,56 +1,52 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormArray } from '@angular/forms';
-// ngx-bootstrap 
+import { FormArray, FormGroup } from '@angular/forms';
+
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-// component 
-import { PaymentModalComponent } from '@app/order/shared/components/payment-modal/payment-modal.component';
-// service 
+
 import { CartService } from '@order/shared/services/cart.service';
 
+import { PaymentModalComponent } from '@app/order/shared/components/payment-modal/payment-modal.component';
+
+
 @Component({
-    selector: 'app-order',
-    templateUrl: './order.component.html',
-    styleUrls: [ './order.component.scss' ]
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-bsModalRef: BsModalRef;
-config = {
+
+  bsModalRef: BsModalRef;
+
+  config = {
     animated: true,
     keyboard: true,
     backdrop: true,
     ignoreBackdropClick: false,
-    class: "modal-dialog-centered custom-modal"
-};
-form: FormGroup;
-subTotal: any;
-tax: any;
-total: any;
-
-constructor(private modalService: BsModalService,
-            private cartService: CartService) {}
+    class: 'modal-dialog-centered custom-modal'
+  };
+  form: FormGroup;
 
 
-ngOnInit() {
+  constructor(
+    private modalService: BsModalService,
+    private cartService: CartService
+  ) { }
+
+  ngOnInit(): void {
     this.form = this.cartService.form;
-}
+  }
 
-
-onRemoveItem({ group, index }: { group: FormGroup, index: number }) {
+  onRemoveItem({ index }: { index: number }) {
     const control = this.cartService.form.get('items') as FormArray;
     control.removeAt(index);
-}
+  }
 
-onPay([cartSubTotal, cartTax, cartTotal]) {
-    const initialState = { cartTotal, cartSubTotal, cartTax, config: this.config};
-    
-    this.bsModalRef = this.modalService.show(PaymentModalComponent, 
-        Object.assign(this.config, {initialState}));
-
+  onPay([cartSubTotal, cartTax, cartTotal]) {
+    const initialState = { cartTotal, cartSubTotal, cartTax, config: this.config };
+    this.bsModalRef = this.modalService
+      .show(PaymentModalComponent,Object.assign(this.config, {initialState}));
     this.bsModalRef.content.isClose
-    .subscribe((closePaymentModal) => closePaymentModal ? this.bsModalRef.hide():  null)
-}
-
-
-
+      .subscribe(closePaymentModal => closePaymentModal ? this.bsModalRef.hide():  null)
+  }
 
 }
