@@ -1,24 +1,28 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+
 
 @Component({
-    selector: 'app-auth-form',
-    templateUrl: './auth-form.component.html',
-    styleUrls: [ './auth-form.component.scss' ]
+  selector: 'app-auth-form',
+  templateUrl: './auth-form.component.html',
+  styleUrls: ['./auth-form.component.scss']
 })
 export class AuthFormComponent {
-@Input()
-errorMessage: string;
 
-@Output()
-submitted: EventEmitter<any> = new EventEmitter<any>();
+  @Input()
+  errorMessage: string;
 
-userForm: FormGroup = new FormGroup({ entryId: new FormControl() });
-constructor() {}
+  @Output()
+  submitted: EventEmitter<any> = new EventEmitter<any>();
 
-onFormSubmit(): void {
+  userForm: FormGroup = new FormGroup({ entryId: new FormControl() });
+
+
+  constructor() { }
+
+  onFormSubmit(): void {
     this.submitted.next(this.userForm.get('entryId').value);
     this.userForm.reset();
-}
+  }
 
 }
