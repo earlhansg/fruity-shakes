@@ -36,12 +36,12 @@ export class OrderComponent implements OnInit {
     this.form = this.cartService.form;
   }
 
-  onRemoveItem({ index }: { index: number }) {
+  onRemoveItem({ index }: { index: number }): void {
     const control = this.cartService.form.get('items') as FormArray;
     control.removeAt(index);
   }
 
-  onPay([cartSubTotal, cartTax, cartTotal]) {
+  onPay([cartSubTotal, cartTax, cartTotal]): void {
     const initialState = { cartTotal, cartSubTotal, cartTax, config: this.config };
     this.bsModalRef = this.modalService
       .show(PaymentModalComponent,Object.assign(this.config, {initialState}));
