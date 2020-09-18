@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// component
-import { ShakesComponent } from './container/shakes.component';
 
+import { ShakesComponent } from './container/shakes.component';
 
 export const ROUTES: Routes = [
   {
