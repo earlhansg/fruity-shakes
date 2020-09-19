@@ -3,38 +3,40 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 const COUNTER_CONTROL_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
+  // tslint:disable-next-line: no-use-before-declare
   useExisting: forwardRef(() => OrderCounterComponent),
   multi: true
 };
 
+
 @Component({
-  selector: 'order-counter',
+  selector: 'app-order-counter',
   providers: [COUNTER_CONTROL_ACCESSOR],
   templateUrl: './order-counter.component.html',
   styleUrls: [ './order-counter.component.scss' ]
 })
 export class OrderCounterComponent implements ControlValueAccessor {
 
-  private onTouch: Function;
-  private onModelChange: Function;
+  @Input() step = 1;
+  @Input() min = 1;
+  @Input() max = 99;
+
+  private onTouch: () => void;
+  private onModelChange: (val: number) => void;
+
+  value = 10;
 
   registerOnTouched(fn) {
     this.onTouch = fn;
   }
-  
+
   registerOnChange(fn) {
     this.onModelChange = fn;
   }
-  
+
   writeValue(value) {
     this.value = value || 0;
   }
-
-  @Input() step: number = 1;
-  @Input() min: number = 1;
-  @Input() max: number = 99;
-
-  value: number = 10;
 
   increment() {
     if (this.value < this.max) {
@@ -43,7 +45,7 @@ export class OrderCounterComponent implements ControlValueAccessor {
     }
     this.onTouch();
   }
-  
+
   decrement() {
     if (this.value > this.min) {
       this.value = this.value - this.step;

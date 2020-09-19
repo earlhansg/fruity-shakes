@@ -22,11 +22,11 @@
                         </div>
                         <!-- end of .order-details  -->
                         <ng-container [formGroupName]="i">
-                            <order-counter 
+                            <app-order-counter 
                                 [step]="1" 
                                 [min]="1" 
                                 [max]="99"
-                                formControlName="quantity"></order-counter>
+                                formControlName="quantity"></app-order-counter>
                         </ng-container>
                     </div>
                 </ng-container>
