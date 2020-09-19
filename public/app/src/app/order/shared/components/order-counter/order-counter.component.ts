@@ -26,19 +26,19 @@ export class OrderCounterComponent implements ControlValueAccessor {
 
   value = 10;
 
-  registerOnTouched(fn) {
+  registerOnTouched(fn): void {
     this.onTouch = fn;
   }
 
-  registerOnChange(fn) {
+  registerOnChange(fn): void {
     this.onModelChange = fn;
   }
 
-  writeValue(value) {
+  writeValue(value): void {
     this.value = value || 0;
   }
 
-  increment() {
+  increment(): void {
     if (this.value < this.max) {
       this.value = this.value + this.step;
       this.onModelChange(this.value);
@@ -46,7 +46,7 @@ export class OrderCounterComponent implements ControlValueAccessor {
     this.onTouch();
   }
 
-  decrement() {
+  decrement(): void {
     if (this.value > this.min) {
       this.value = this.value - this.step;
       this.onModelChange(this.value);
