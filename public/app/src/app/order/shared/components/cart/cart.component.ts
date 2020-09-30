@@ -70,7 +70,7 @@ export class CartComponent implements OnDestroy {
   get total(): Observable<number> {
     return combineLatest([this.subTotal, this.tax$])
       .pipe(
-        map(([subTotal, tax]) =>  subTotal - tax ),
+        map(([subTotal, tax]) =>  subTotal + tax ),
         startWith(0)
       )
   }
